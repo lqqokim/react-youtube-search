@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import searchYoutube from 'youtube-api-v3-search';
+// import * as serviceWorker from './serviceWorker';
+
+import SearchBar from './components/search_bar';
+
+const API_KEY = 'AIzaSyCrI0kwNS07VIBB006Rhu5WuI-9hZPoYD4';
+const options = {
+    q: '',
+    part: 'snippet',
+    type: 'video'
+};
+
+searchYoutube(API_KEY, options).then((data) => {
+    console.log('searchResult => ', data);
+});
+
+
+const App = () => {
+    return (
+        <div>
+            <SearchBar />
+        </div>
+    );
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// serviceWorker.unregister();
