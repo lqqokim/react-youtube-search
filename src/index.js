@@ -1,28 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import searchYoutube from 'youtube-api-v3-search';
 // import * as serviceWorker from './serviceWorker';
-
 import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
 
 const API_KEY = 'AIzaSyCrI0kwNS07VIBB006Rhu5WuI-9hZPoYD4';
 const options = {
-    q: '',
+    q: '트와이스',
     part: 'snippet',
     type: 'video'
 };
 
-searchYoutube(API_KEY, options).then((data) => {
-    console.log('searchResult => ', data);
-});
+class App extends Component {
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            videos: []
+        };
 
-const App = () => {
-    return (
-        <div>
-            <SearchBar />
-        </div>
-    );
+        searchYoutube(API_KEY, options).then((videos) => {
+            console.log('searchYoutube => ', videos);
+            this.setState({ videos: videos.items });
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <SearchBar />
+                <VideoList videos={this.state.videos}/>
+            </div>
+        );
+    }
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
