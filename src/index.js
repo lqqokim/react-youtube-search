@@ -4,6 +4,7 @@ import searchYoutube from 'youtube-api-v3-search';
 // import * as serviceWorker from './serviceWorker';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
 
 const API_KEY = 'AIzaSyCrI0kwNS07VIBB006Rhu5WuI-9hZPoYD4';
 const options = {
@@ -17,12 +18,18 @@ class App extends Component {
         super(props);
 
         this.state = {
-            videos: []
+            videos: [],
+            selectedVideo: null
         };
 
         searchYoutube(API_KEY, options).then((videos) => {
-            console.log('searchYoutube => ', videos);
-            this.setState({ videos: videos.items });
+            const items = videos.items;
+            console.log('items => ', items)
+            
+            this.setState({
+                videos: items,
+                selectedVideo: items[0]
+            });
         });
     }
 
@@ -30,7 +37,11 @@ class App extends Component {
         return (
             <div>
                 <SearchBar />
-                <VideoList videos={this.state.videos}/>
+                <VideoDetail video={this.state.selectedVideo} />
+                <VideoList
+                    onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+                    videos={this.state.videos}
+                />
             </div>
         );
     }
