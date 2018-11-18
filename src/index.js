@@ -24,8 +24,8 @@ class App extends Component {
 
         searchYoutube(API_KEY, options).then((videos) => {
             const items = videos.items;
-            console.log('items => ', items)
-            
+            console.log('Video List => ', items)
+
             this.setState({
                 videos: items,
                 selectedVideo: items[0]
@@ -37,7 +37,9 @@ class App extends Component {
         return (
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.selectedVideo} />
+                <VideoDetail
+                    video={this.state.selectedVideo}
+                />
                 <VideoList
                     onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
                     videos={this.state.videos}
