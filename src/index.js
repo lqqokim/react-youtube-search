@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
+import _ from 'lodash';
 import ReactDOM from 'react-dom';
 import searchYoutube from 'youtube-api-v3-search';
 // import * as serviceWorker from './serviceWorker';
@@ -45,14 +46,22 @@ class App extends Component {
      * 1. Callback Function 전달
      * 2. Props로 접근
      */
-    
+
     render() {
+        const videoSearch = _.debounce((keyword) => {
+            this.videoSearch(keyword)
+        }, 500);
+
+        // const videoSearch = ((keyword) => {
+        //     setTimeout(() => {
+        //         this.videoSearch(keyword);
+        //     }, 3000);
+        // });
+
         return (
             <div>
                 <SearchBar
-                    onChangeKeyword={(keyword) => {
-                        this.videoSearch(keyword);
-                    }}
+                    onChangeKeyword={videoSearch}
                 />
                 <VideoDetail
                     video={(this.state.selectedVideo)}
