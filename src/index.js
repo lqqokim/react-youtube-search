@@ -23,6 +23,12 @@ class App extends Component {
             selectedVideo: null
         };
 
+        this.videoSearch(options);
+    }
+
+    videoSearch(keyword) {
+        options.q = keyword;
+
         searchYoutube(API_KEY, options).then((videos) => {
             const items = videos.items;
             console.log('Video List => ', items)
@@ -34,15 +40,27 @@ class App extends Component {
         });
     }
 
+    /**
+     * 상위 컴포넌트에 이벤트 전달하는 방식
+     * 1. Callback Function 전달
+     * 2. Props로 접근
+     */
+    
     render() {
         return (
             <div>
-                <SearchBar />
+                <SearchBar
+                    onChangeKeyword={(keyword) => {
+                        this.videoSearch(keyword);
+                    }}
+                />
                 <VideoDetail
-                    video={this.state.selectedVideo}
+                    video={(this.state.selectedVideo)}
                 />
                 <VideoList
-                    onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+                    onVideoSelect={(selectedVideo) => {
+                        this.setState({ selectedVideo });
+                    }}
                     videos={this.state.videos}
                 />
             </div>
