@@ -18,6 +18,10 @@ code {
   text-align: center;
 }
 
+.search-bar .search-button {
+  padding: 2.1px 28px 2.1px 28px;
+}
+
 .search-bar input {
   width: 75%;
 }

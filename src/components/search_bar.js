@@ -18,7 +18,11 @@ class SearchBar extends Component {
                 <input
                     value={this.state.keyword}
                     onChange={event => this.onChangeInput(event.target.value)}
+                    placeholder="검색"
                 />
+                <button className="search-button">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
         );
     }
