@@ -31,7 +31,7 @@ class App extends Component {
         options.q = keyword;
 
         searchYoutube(API_KEY, options).then((videos) => {
-            const items = videos.items;
+            const items = videos.items.concat(videos.items, videos.items, videos.items);
             console.log('Video List => ', items)
 
             this.setState({
@@ -48,9 +48,9 @@ class App extends Component {
      */
 
     render() {
-        const videoSearch = _.debounce((keyword) => {
-            this.videoSearch(keyword)
-        }, 500);
+        // const videoSearch = _.debounce((keyword) => {
+        //     this.videoSearch(keyword)
+        // }, 500);
 
         // const videoSearch = ((keyword) => {
         //     setTimeout(() => {
@@ -61,7 +61,9 @@ class App extends Component {
         return (
             <div>
                 <SearchBar
-                    onChangeKeyword={videoSearch}
+                    onChangeKeyword={(keyword) => {
+                        this.videoSearch(keyword);
+                    }}
                 />
                 <VideoDetail
                     video={(this.state.selectedVideo)}

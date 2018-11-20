@@ -9,7 +9,17 @@ class SearchBar extends Component {
 
     onChangeInput(keyword) {
         this.setState({ keyword });
-        this.props.onChangeKeyword(keyword);
+        // this.props.onChangeKeyword(keyword);
+    }
+
+    onCheckEnter(event) {
+        if(event.keyCode === 13) {
+            this.onSearchVideo(event.target.value);
+        }
+    }
+
+    onSearchVideo() {
+        this.props.onChangeKeyword(this.state.keyword);
     }
 
     render() {
@@ -18,9 +28,12 @@ class SearchBar extends Component {
                 <input
                     value={this.state.keyword}
                     onChange={event => this.onChangeInput(event.target.value)}
+                    onKeyDown={event => this.onCheckEnter(event)}
                     placeholder="검색"
                 />
-                <button className="search-button">
+                <button className="search-button"
+                    onClick={event => this.onSearchVideo()}
+                >
                     <i class="fa fa-search"></i>
                 </button>
             </div>
