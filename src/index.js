@@ -10,7 +10,7 @@ import VideoDetail from './components/video_detail';
 
 const API_KEY = 'AIzaSyCrI0kwNS07VIBB006Rhu5WuI-9hZPoYD4';
 const options = {
-    q: '트와이스',
+    q: '',
     part: 'snippet',
     type: 'video'
 };
@@ -31,7 +31,7 @@ class App extends Component {
         options.q = keyword;
 
         searchYoutube(API_KEY, options).then((videos) => {
-            const items = videos.items.concat(videos.items, videos.items, videos.items);
+            const items = videos.items;
             console.log('Video List => ', items)
 
             this.setState({
