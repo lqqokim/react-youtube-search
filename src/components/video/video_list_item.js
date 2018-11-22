@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class VideoListItem extends Component {
     constructor(props) {
         super(props);
-        console.log('VideoListItem props => ', props);
 
         this.state = {
             isItemOver: false
@@ -11,7 +10,6 @@ class VideoListItem extends Component {
 
         this.video = props.video;
         this.imageUrl = props.video.snippet.thumbnails.default.url;
-        console.log('imageUrl => ', this.imageUrl);
     }
 
     onClickItem() {

@@ -2,6 +2,7 @@
 
 .header .search-bar {
     /* margin: auto; */
+    position: relative;
     width: 45.5%;
     display: inline-block;
     vertical-align: top;
@@ -146,9 +147,9 @@
 .list-group-item .group-item .item-content .item-dots>span {
     position: relative;
     background-color: rgba(100, 100, 100, 0.459);
-    /* border-radius: 5px; */
+    border-radius: 5px;
     font-size: 0;
-    /* margin-left: 5px; */
+    margin-left: 5px;
     padding: 3px;
     margin-left: 10px;
     margin-top: 20px;
