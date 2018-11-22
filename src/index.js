@@ -4,9 +4,9 @@ import _ from 'lodash';
 import ReactDOM from 'react-dom';
 import searchYoutube from 'youtube-api-v3-search';
 // import * as serviceWorker from './serviceWorker';
-import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail';
+import SearchBar from './components/search/search_bar';
+import VideoList from './components/video/video_list';
+import VideoDetail from './components/video/video_detail';
 
 const API_KEY = 'AIzaSyCrI0kwNS07VIBB006Rhu5WuI-9hZPoYD4';
 const options = {
@@ -31,11 +31,10 @@ class App extends Component {
         options.q = keyword;
 
         searchYoutube(API_KEY, options).then((videos) => {
-            const items = videos.items;
-            console.log('Video List => ', items)
+            const items = videos.items.concat(videos.items, videos.items, videos.items, videos.items);
 
             this.setState({
-                videos: items,
+                videos: items.concat([]),
                 selectedVideo: items[0]
             });
         });
