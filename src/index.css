@@ -9,6 +9,15 @@
     padding-top: 15px;
 }
 
+.header .search-bar .search-history{
+    position: absolute;
+    border: 2px solid red;
+    z-Index: 1;
+    width: 75%;
+    height: 250px;
+    background-color: white;
+}
+
 .header .search-bar .search-button {
     padding: 2.1px 28px 2.1px 28px;
 }

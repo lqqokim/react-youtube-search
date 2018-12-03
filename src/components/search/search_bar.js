@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import SearchHistory from './search_history';
 
 class SearchBar extends Component {
-    isClickSearchHistory = false;
-
     constructor(props) {
         super(props);
 
@@ -11,19 +9,18 @@ class SearchBar extends Component {
             keyword: '',
             isShowSearcHistory: false
         }
-
-        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     componentDidMount() {
-        document.addEventListener('mousedown', this.handleClickOutside);
+        // document.addEventListener('mousedown', this.handleClickOutside);
     }
 
-    onChangeInput(keyword) {
+    onChangeInput = (event) => {
+        const keyword = event.target.value;
         this.setState({ keyword });
     }
 
-    onCheckEnter(event) {
+    onCheckEnter = (event) => {
         if (event.keyCode === 13) {
             this.onSearchVideo(event.target.value);
         }
@@ -33,11 +30,7 @@ class SearchBar extends Component {
         this.props.onChangeKeyword(this.state.keyword);
     }
 
-    onClickSearchHistroy() {
-        this.isClickSearchHistory = true;
-    }
-
-    onClickInput() {
+    onClickInput = () => {
         if (this.state.isShowSearcHistory) {
             this.setState({ isShowSearcHistory: false });
         } else {
@@ -45,33 +38,7 @@ class SearchBar extends Component {
         }
     }
 
-    setWrapperRef(node) {
-        console.log('setWrapperRef => ', node);
-        this.wrapperRef = node;
-    }
-
-    handleClickOutside(event) {
-        console.log('handleClickOutside => ', event);
-        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-            if (this.state.isShowSearcHistory && !this.isClickSearchHistory) { // input + history 밖 클릭했을때 Close
-                this.setState({ isShowSearcHistory: false });
-            }
-            //  else if (this.state.isShowSearcHistory && this.isClickSearchHistory) { // history 클릭했을때 Open
-            //     this.setState({ isShowSearcHistory: true });
-            // }
-        }
-    }
-
     render() {
-        const searchHistory = (
-            this.state.isShowSearcHistory ?
-                (
-                    <SearchHistory
-                        onClickSearchHistroy={() => this.onClickSearchHistroy()}
-                    />
-                ) : null
-        );
-
         return (
             <div className="header">
                 <div className="left">
@@ -85,10 +52,9 @@ class SearchBar extends Component {
                 <div className="search-bar">
                     <input
                         value={this.state.keyword}
-                        onChange={event => this.onChangeInput(event.target.value)}
-                        onKeyDown={event => this.onCheckEnter(event)}
-                        onClick={() => this.onClickInput()}
-                        ref={(node) => this.setWrapperRef(node)}
+                        onChange={this.onChangeInput}
+                        onKeyDown={this.onCheckEnter}
+                        onClick={this.onClickInput}
                         placeholder="검색"
                     />
                     <button className="search-button"
@@ -96,7 +62,13 @@ class SearchBar extends Component {
                     >
                         <i className="fa fa-search"></i>
                     </button>
-                    {searchHistory}
+                    {this.state.isShowSearcHistory &&
+                        (
+                            <SearchHistory
+                                onCloseHistory={() => this.setState({ isShowSearcHistory: false })}
+                            />
+                        )
+                    }
                 </div>
             </div>
         );
