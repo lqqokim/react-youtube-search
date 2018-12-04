@@ -1,9 +1,12 @@
 import React from 'react';
+import Heart from './heart.js';
 
 const VideoDetail = ({ video }) => {
     console.log('VideoDetail => ', video);
-    if(!video) {
+    if (!video) {
         return <div>Loading ...</div>
+    } else {
+
     }
 
     const videoId = video.id.videoId;
@@ -17,6 +20,7 @@ const VideoDetail = ({ video }) => {
             <div className="details">
                 <div className="title">{video.snippet.title}</div>
                 <div className="description">{video.snippet.description}</div>
+                <Heart />
             </div>
         </div>
     );
