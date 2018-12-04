@@ -21,7 +21,8 @@ class App extends Component {
 
         this.state = {
             videos: [],
-            selectedVideo: null
+            selectedVideo: null,
+            isOpenMenu: false
         };
 
         this.videoSearch(options);
@@ -38,6 +39,10 @@ class App extends Component {
                 selectedVideo: items[0]
             });
         });
+    }
+
+    onClickMenuBar = (isOpenMenu) => {
+        this.setState({ isOpenMenu });
     }
 
     /**
@@ -57,12 +62,16 @@ class App extends Component {
         //     }, 3000);
         // });
 
+        const menuBarClass = this.state.isOpenMenu ? '' : 'close';
+
         return (
-            <div>
+            <div style={{ paddingTop: ' 55px' }}>
                 <SearchBar
+                    isOpenMenu={this.state.isOpenMenu}
                     onChangeKeyword={(keyword) => {
                         this.videoSearch(keyword);
                     }}
+                    onClickMenuBar={this.onClickMenuBar}
                 />
                 <VideoDetail
                     video={(this.state.selectedVideo)}
@@ -73,7 +82,9 @@ class App extends Component {
                     }}
                     videos={this.state.videos}
                 />
-            </div>
+
+                <div className={`menuBar ${menuBarClass}`}> 좋아요 목록 </div>
+            </div >
         );
     }
 }

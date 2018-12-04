@@ -38,12 +38,19 @@ class SearchBar extends Component {
         }
     }
 
+    onClickMenuBar = () => {
+        const { isOpenMenu } = this.props;
+        this.props.onClickMenuBar(!isOpenMenu);
+    }
+
     render() {
         return (
             <div className="header">
                 <div className="left">
                     <div className="menu">
-                        <i className="fa fa-bars"></i>
+                        <i className="fa fa-bars"
+                            onClick={this.onClickMenuBar}
+                        ></i>
                     </div>
                     <div className="logo">
                         <img src={require('./../images/youtube.jpg')} />
