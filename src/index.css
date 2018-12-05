@@ -200,19 +200,33 @@
     padding: 3px;
 }
 
-.menuBar {
-    transition-duration: 0.2s
-}
-
-.menuBar {
+.menuBar{
     width: 250px;
     height: 100%;
     position: fixed;
     background-color: white;
-    border: 1px solid black;
     transform: translateX(0);
     top: 54px;
     bottom: 0;
+    transition-duration: 0.2s;
+    box-shadow: 0 1.8px 12px rgba(0,0,0,0.6);
+}
+.menuBar:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0px;
+    bottom: 0;
+    left: 250px;
+    background-color: #000;
+    opacity: 0.55;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    width: 1025%;
+}
+.menuBar.close:after{
+display: none;
 }
 
 .menuBar.close {
