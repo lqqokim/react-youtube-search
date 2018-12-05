@@ -214,6 +214,7 @@
 
 .menuBar.close {
     transform: translateX(-250px);
+    box-shadow: none;
 }
 
 /* HeaRT */
