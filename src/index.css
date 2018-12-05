@@ -69,21 +69,34 @@
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-
     background-color: #5b83deb5;
     color: white;
+    width: 100%;
+    height: 200px;
 }
 
-.video-detail .details .title {
-    font-size: 1.2em;
+.video-detail .details .content-area {
+    display: inline-block;
+    width: calc(100% - 50px);
+}
+
+.video-detail .details .content-area .title {
+    font-size: 1.4em;
     font-family: 'Myriad pro Semibold';
     font-weight: bold;
 }
 
-.video-detail .details .description {
-    padding-top: 20px;
-    font-size: 0.8em;
-    font-family: 'Myriad pro Semibold';
+.video-detail .details .content-area .description {
+    display: inline-block;
+    width: calc(100% - 50px);
+    margin-top: 5%;
+}
+
+.video-detail .details .heart-area {
+    display: inline-block;
+    width: 50px;
+    vertical-align: top;
+    text-align: center;
 }
 
 /* video_list */
@@ -200,7 +213,7 @@
     padding: 3px;
 }
 
-.menuBar{
+.menuBar {
     width: 250px;
     height: 100%;
     position: fixed;
@@ -209,19 +222,48 @@
     top: 54px;
     bottom: 0;
     transition-duration: 0.2s;
-    box-shadow: 0 0 0 100vmax rgba(0,0,0, .6);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .6);
 }
 
 .menuBar.close {
     transform: translateX(-250px);
-    box-shadow:0 0 0 100vmax transparent;
+    box-shadow: 0 0 0 100vmax transparent;
+}
+
+.menuBar .menu-list {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.menuBar .menu-list>li {
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+
+    text-align: left;
+    padding-left: 13px;
+}
+
+.menuBar .menu-list>li:hover {
+    background-color: rgb(230, 228, 228);
+    cursor: pointer;
+}
+
+.menuBar .menu-list>li>i {
+    font-size: 17px;
+    height: 40px;
+    text-align: center;
+    margin-top: 20px;
+    color: #b9b9b9;
 }
 
 /* HeaRT */
 
 #heart {
     max-height: 70px;
-    width: 70px;
+    width: 40px;
     fill: white;
     stroke: white;
     cursor: pointer;

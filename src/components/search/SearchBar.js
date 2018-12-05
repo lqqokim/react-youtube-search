@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchHistory from './search_history';
+import SearchHistory from './SearchHistory';
 
 class SearchBar extends Component {
     constructor(props) {

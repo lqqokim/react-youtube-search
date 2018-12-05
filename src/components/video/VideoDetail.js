@@ -1,5 +1,5 @@
 import React from 'react';
-import Heart from './heart.js';
+import Heart from './Heart.js';
 
 const VideoDetail = ({ video }) => {
     console.log('VideoDetail => ', video);
@@ -18,8 +18,11 @@ const VideoDetail = ({ video }) => {
                 <iframe className="embed-responsive-item" src={url}></iframe>
             </div>
             <div className="details">
-                <div className="title">{video.snippet.title}</div>
-                <div className="description">{video.snippet.description}</div>
+                <div className="content-area">
+                    <div className="title">{video.snippet.title}</div>
+                    <div className="description">{video.snippet.description}</div>
+                </div>
+
                 <Heart />
             </div>
         </div>

@@ -4,9 +4,10 @@ import _ from 'lodash';
 import ReactDOM from 'react-dom';
 import searchYoutube from 'youtube-api-v3-search';
 // import * as serviceWorker from './serviceWorker';
-import SearchBar from './components/search/search_bar';
-import VideoList from './components/video/video_list';
-import VideoDetail from './components/video/video_detail';
+import SearchBar from './components/search/SearchBar';
+import VideoList from './components/video/VideoList';
+import VideoDetail from './components/video/VideoDetail';
+import Menu from './components/menu/Menu';
 
 const API_KEY = 'AIzaSyCrI0kwNS07VIBB006Rhu5WuI-9hZPoYD4';
 const options = {
@@ -62,8 +63,6 @@ class App extends Component {
         //     }, 3000);
         // });
 
-        const menuBarClass = this.state.isOpenMenu ? '' : 'close';
-
         return (
             <div style={{ paddingTop: ' 55px' }}>
                 <SearchBar
@@ -82,8 +81,9 @@ class App extends Component {
                     }}
                     videos={this.state.videos}
                 />
-
-                <div className={`menuBar ${menuBarClass}`}> 좋아요 목록 </div>
+                <Menu
+                    isOpenMenu={this.state.isOpenMenu}
+                />
             </div >
         );
     }
