@@ -209,12 +209,12 @@
     top: 54px;
     bottom: 0;
     transition-duration: 0.2s;
-    box-shadow: 0 0 0 100vmax rgba(0,0,0, .6)
+    box-shadow: 0 0 0 100vmax rgba(0,0,0, .6);
 }
 
 .menuBar.close {
     transform: translateX(-250px);
-    box-shadow: none;
+    box-shadow:0 0 0 100vmax transparent;
 }
 
 /* HeaRT */
