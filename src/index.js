@@ -29,7 +29,7 @@ class App extends Component {
         this.videoSearch(options);
     }
 
-    videoSearch(keyword) {
+    videoSearch = (keyword) => {
         options.q = keyword;
 
         searchYoutube(API_KEY, options).then((videos) => {
@@ -64,12 +64,10 @@ class App extends Component {
         // });
 
         return (
-            <div style={{ paddingTop: ' 55px' }}>
+            <div style={{ paddingTop: '55px' }}>
                 <SearchBar
                     isOpenMenu={this.state.isOpenMenu}
-                    onChangeKeyword={(keyword) => {
-                        this.videoSearch(keyword);
-                    }}
+                    onChangeKeyword={this.videoSearch}
                     onClickMenuBar={this.onClickMenuBar}
                 />
                 <VideoDetail

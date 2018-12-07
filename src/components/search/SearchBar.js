@@ -26,7 +26,7 @@ class SearchBar extends Component {
         }
     }
 
-    onSearchVideo() {
+    onSearchVideo = () => {
         this.props.onChangeKeyword(this.state.keyword);
     }
 
@@ -65,7 +65,7 @@ class SearchBar extends Component {
                         placeholder="검색"
                     />
                     <button className="search-button"
-                        onClick={() => this.onSearchVideo()}
+                        onClick={this.onSearchVideo}
                     >
                         <i className="fa fa-search"></i>
                     </button>

@@ -12,15 +12,15 @@ class VideoListItem extends Component {
         this.imageUrl = props.video.snippet.thumbnails.default.url;
     }
 
-    onClickItem() {
+    onClickItem = () => {
         this.props.onVideoSelect(this.video);
     }
 
-    onMouseOverItem() {
+    onMouseOverItem = () => {
         this.setState({ isItemOver: true })
     }
 
-    onMouseLeaveItem() {
+    onMouseLeaveItem = () => {
         this.setState({ isItemOver: false })
     }
 
@@ -41,13 +41,13 @@ class VideoListItem extends Component {
 
         return (
             <li className="list-group-item"
-                onClick={() => this.onClickItem()}
-                onMouseOver={() => this.onMouseOverItem()}
-                onMouseLeave={() => this.onMouseLeaveItem()}
+                onClick={this.onClickItem}
+                onMouseOver={his.onMouseOverItem}
+                onMouseLeave={this.onMouseLeaveItem}
             >
                 <div className="group-item">
                     <div className="item-thumbnail">
-                        <img src={this.imageUrl} alt={this.video.title}/>
+                        <img src={this.imageUrl} alt={this.video.title} />
                         {itemLayer}
                     </div>
                     <div className="item-content">
