@@ -43,6 +43,10 @@ class SearchBar extends Component {
         this.props.onClickMenuBar(!isOpenMenu);
     }
 
+    onCloseHistory = () => {
+        this.setState({ isShowSearcHistory: false })
+    }
+
     render() {
         return (
             <div className="header">
@@ -72,7 +76,7 @@ class SearchBar extends Component {
                     {this.state.isShowSearcHistory &&
                         (
                             <SearchHistory
-                                onCloseHistory={() => this.setState({ isShowSearcHistory: false })}
+                                onCloseHistory={this.onCloseHistory}
                             />
                         )
                     }

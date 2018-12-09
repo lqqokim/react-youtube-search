@@ -46,6 +46,10 @@ class App extends Component {
         this.setState({ isOpenMenu });
     }
 
+    onVideoSelect = (selectedVideo) => {
+        this.setState({ selectedVideo });
+    }
+
     /**
      * 상위 컴포넌트에 이벤트 전달하는 방식
      * 1. Callback Function 전달
@@ -74,9 +78,7 @@ class App extends Component {
                     video={(this.state.selectedVideo)}
                 />
                 <VideoList
-                    onVideoSelect={(selectedVideo) => {
-                        this.setState({ selectedVideo });
-                    }}
+                    onVideoSelect={this.onVideoSelect}
                     videos={this.state.videos}
                 />
                 <Menu
