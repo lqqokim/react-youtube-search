@@ -12,7 +12,7 @@ class SearchBar extends Component {
     }
 
     componentDidMount() {
-        // document.addEventListener('mousedown', this.handleClickOutside);
+        
     }
 
     onChangeInput = (event) => {
@@ -73,13 +73,13 @@ class SearchBar extends Component {
                     >
                         <i className="fa fa-search"></i>
                     </button>
-                    {this.state.isShowSearcHistory &&
+                    {/* {this.state.isShowSearcHistory &&
                         (
                             <SearchHistory
                                 onCloseHistory={this.onCloseHistory}
                             />
                         )
-                    }
+                    } */}
                 </div>
             </div>
         );

@@ -2,7 +2,6 @@ import React from 'react';
 import Heart from './Heart.js';
 
 const VideoDetail = ({ video }) => {
-    console.log('VideoDetail => ', video);
     if (!video) {
         return <div>Loading ...</div>
     } else {

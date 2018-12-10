@@ -42,7 +42,7 @@ class VideoListItem extends Component {
         return (
             <li className="list-group-item"
                 onClick={this.onClickItem}
-                onMouseOver={his.onMouseOverItem}
+                onMouseOver={this.onMouseOverItem}
                 onMouseLeave={this.onMouseLeaveItem}
             >
                 <div className="group-item">
