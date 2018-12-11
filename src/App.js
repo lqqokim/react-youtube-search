@@ -1,9 +1,5 @@
 //React
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
-//Libs
-import _ from 'lodash';
 
 //Api
 import searchYoutube from 'youtube-api-v3-search';
@@ -13,7 +9,7 @@ import SearchBar from './components/search/SearchBar';
 import VideoList from './components/video/VideoList';
 import VideoDetail from './components/video/VideoDetail';
 import Menu from './components/menu/Menu';
-import './index.css';
+import './App.css';
 
 const API_KEY = 'AIzaSyCrI0kwNS07VIBB006Rhu5WuI-9hZPoYD4';
 const options = {
@@ -75,7 +71,7 @@ class App extends Component {
                 <Menu
                     isOpenMenu={this.state.isOpenMenu}
                 />
-            </div >
+            </div>
         );
     }
 }

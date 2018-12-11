@@ -12,7 +12,7 @@ class SearchBar extends Component {
     }
 
     componentDidMount() {
-        
+
     }
 
     onChangeInput = (event) => {
@@ -57,7 +57,7 @@ class SearchBar extends Component {
                         ></i>
                     </div>
                     <div className="logo">
-                        <img src={require('./../images/youtube.jpg')} />
+                        <img src={require('./../../assets/images/youtube.jpg')} alt={"asdasda"} />
                     </div>
                 </div>
                 <div className="search-bar">
@@ -73,13 +73,13 @@ class SearchBar extends Component {
                     >
                         <i className="fa fa-search"></i>
                     </button>
-                    {/* {this.state.isShowSearcHistory &&
+                    {this.state.isShowSearcHistory &&
                         (
                             <SearchHistory
                                 onCloseHistory={this.onCloseHistory}
                             />
                         )
-                    } */}
+                    }
                 </div>
             </div>
         );

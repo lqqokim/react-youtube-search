@@ -3,7 +3,6 @@ import React from 'react';
 class Heart extends React.Component {
     componentDidMount() {
         document.getElementById('heart').addEventListener('click', function(event) {
-            
             return this.classList.toggle('heartscale');
         });
     }
