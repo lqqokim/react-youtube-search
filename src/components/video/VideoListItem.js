@@ -25,20 +25,6 @@ class VideoListItem extends Component {
     }
 
     render() {
-        const itemLayer = this.state.isItemOver ?
-            (
-                <div className="play">
-                    <i className="fa fa-play"></i>
-                </div>
-            ) : null;
-
-        const dots = this.state.isItemOver ?
-            (
-                <div className="item-dots">
-                    <span className="dots"></span>
-                </div>
-            ) : null;
-
         return (
             <li className="list-group-item"
                 onClick={this.onClickItem}
@@ -48,18 +34,34 @@ class VideoListItem extends Component {
                 <div className="group-item">
                     <div className="item-thumbnail">
                         <img src={this.imageUrl} alt={this.video.title} />
-                        {itemLayer}
+                        {this.state.isItemOver && <Layer />}
                     </div>
                     <div className="item-content">
                         <div className="item-title">
                             {this.video.snippet.title}
                         </div>
-                        {dots}
+                        {this.state.isItemOver && <Dots />}
                     </div>
                 </div>
             </li>
         );
     }
 }
+
+const Layer = () => {
+    return (
+        <div className="play">
+            <i className="fa fa-play"></i>
+        </div>
+    );
+};
+
+const Dots = () => {
+    return (
+        <div className="item-dots">
+            <span className="dots"></span>
+        </div>
+    );
+};
 
 export default VideoListItem;

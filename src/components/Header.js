@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import SearchHistory from './SearchHistory';
+import { withRouter } from 'react-router-dom';
 
-class SearchBar extends Component {
+import SearchHistory from './search/SearchHistory';
+
+class Header extends Component {
     constructor(props) {
         super(props);
 
@@ -12,7 +14,7 @@ class SearchBar extends Component {
     }
 
     componentDidMount() {
-
+        console.log('props => ', this.props);
     }
 
     onChangeInput = (event) => {
@@ -22,7 +24,9 @@ class SearchBar extends Component {
 
     onCheckEnter = (event) => {
         if (event.keyCode === 13) {
-            this.onSearchVideo(event.target.value);
+            const keyword = event.target.value;
+            this.props.history.push(`/search/${keyword}`);
+            this.onSearchVideo(keyword);
         }
     }
 
@@ -31,11 +35,7 @@ class SearchBar extends Component {
     }
 
     onClickInput = () => {
-        if (this.state.isShowSearcHistory) {
-            this.setState({ isShowSearcHistory: false });
-        } else {
-            this.setState({ isShowSearcHistory: true });
-        }
+        this.setState({ isShowSearcHistory: !this.state.isShowSearcHistory });
     }
 
     onClickMenuBar = () => {
@@ -51,14 +51,10 @@ class SearchBar extends Component {
         return (
             <div className="header">
                 <div className="left">
-                    <div className="menu">
-                        <i className="fa fa-bars"
-                            onClick={this.onClickMenuBar}
-                        ></i>
-                    </div>
-                    <div className="logo">
-                        <img src={require('./../../assets/images/youtube.jpg')} alt={"asdasda"} />
-                    </div>
+                    <MenuBar
+                        onClickMenuBar={this.onClickMenuBar}
+                    />
+                    <Logo />
                 </div>
                 <div className="search-bar">
                     <input
@@ -86,4 +82,22 @@ class SearchBar extends Component {
     }
 }
 
-export default SearchBar;
+const MenuBar = (props) => {
+    return (
+        <div className="menu">
+            <i className="fa fa-bars"
+                onClick={props.onClickMenuBar}
+            ></i>
+        </div>
+    );
+}
+
+const Logo = () => {
+    return (
+        <div className="logo">
+            <img src={require('./../assets/images/youtube.jpg')} alt={"logo"} />
+        </div>
+    );
+}
+
+export default withRouter(Header);
