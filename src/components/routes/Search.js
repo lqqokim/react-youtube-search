@@ -57,10 +57,6 @@ class Search extends Component {
             selectedVideo });
     }
 
-    heartClickedVideos = (heartClickedVideos) => {
-        console.log(this.props);
-    }
-
     render() {
         return (
             <div>
@@ -70,7 +66,6 @@ class Search extends Component {
                         <Fragment>
                             <VideoDetail
                                 video={(this.state.selectedVideo)}
-                                heartClickedVideos={this.heartClickedVideos}
                             />
                             <VideoList
                                 onVideoSelect={this.onVideoSelect}
