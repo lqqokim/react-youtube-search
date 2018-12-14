@@ -17,9 +17,11 @@ class VideoDetail extends Component {
     }
 
     onClickHeartBtn = (video) => {
-        console.log(video.isChecked);
-        this.setState({ heartClickedVideos: this.state.heartClickedVideos.concat([video]) }, () => {
-            console.log('onClickHeartBtn => ', this.state.heartClickedVideos);
+        this.setState({
+            video,
+            heartClickedVideos: this.state.heartClickedVideos.concat([video])
+        }, () => {
+            this.props.heartClickedVideos(this.state.heartClickedVideos);
         });
     }
 

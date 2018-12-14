@@ -22,7 +22,7 @@ class Search extends Component {
             keyword: props.match.params.keyword,
             videos: [],
             selectedVideo: null,
-            heartClickedVideos: []
+            heartClickedVideos: [],
 
         };
 
@@ -45,7 +45,6 @@ class Search extends Component {
             }
 
             const items = videos.items.concat(videos.items, videos.items, videos.items, videos.items);
-
             this.setState({
                 videos: items.concat([]),
                 selectedVideo: items[0]
@@ -54,7 +53,12 @@ class Search extends Component {
     }
 
     onVideoSelect = (selectedVideo) => {
-        this.setState({ selectedVideo });
+        this.setState({ 
+            selectedVideo });
+    }
+
+    heartClickedVideos = (heartClickedVideos) => {
+        console.log(this.props);
     }
 
     render() {
@@ -66,6 +70,7 @@ class Search extends Component {
                         <Fragment>
                             <VideoDetail
                                 video={(this.state.selectedVideo)}
+                                heartClickedVideos={this.heartClickedVideos}
                             />
                             <VideoList
                                 onVideoSelect={this.onVideoSelect}

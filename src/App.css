@@ -249,7 +249,7 @@
 }
 
 /* Heart */
-#heart {
+.heart {
     max-height: 70px;
     width: 40px;
     fill: white;

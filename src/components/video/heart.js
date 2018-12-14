@@ -1,24 +1,25 @@
 import React from 'react';
 
 class Heart extends React.Component {
+    target;
+
     constructor(props) {
         super(props);
 
         this.state = {
-            video: props.video
+            video: props.video,
+            isClickBtn: false
         };
     }
 
-
-    componentDidMount() {
-        // document.getElementById('heart').addEventListener('click', (event) => {
-        //     return event.currentTarget.classList.toggle('heartscale');
-        // });
+    componentWillReceiveProps({ video }) {
+        this.setState({ video });
     }
 
     onClickHeartBtn = (event) => {
-        event.currentTarget.classList.toggle('heartscale');
         let { video } = this.state;
+        this.target = event.currentTarget.classList;
+        this.target.toggle('heartscale');
 
         if(video.isChecked) {
             video.isChecked = false;
@@ -26,16 +27,18 @@ class Heart extends React.Component {
             video.isChecked = true;
         }
 
-        this.props.onClickHeartBtn(video)
+        this.props.onClickHeartBtn(video);
     }
 
     render() {
         return (
             <div className="heart-area" >
-                <svg className="mo-icon__svg" x="0px" y="0px" 
-                    viewBox="0 0 200 200" style={{enableBackground: 'new 0 0 200 200'}} xmlSpace="preserve" id="heart"
-                    onClick={this.onClickHeartBtn}
-                    >
+                <svg  x="0px" y="0px" 
+                    viewBox="0 0 200 200" 
+                    style={{enableBackground: 'new 0 0 200 200'}}
+                    xmlSpace="preserve" 
+                    className={this.state.video.isChecked ?  `heart heartscale`:`heart`}
+                    onClick={this.onClickHeartBtn}>
                     <g id="icon_x5F_wishlist">
                         <g transform="translate(0,-952.36218)">
                             <path className="st0" id="st0" d="M15.33293,980.7616c-19.11968,19.8092-19.10147,51.68518,0,71.51379l84.61456,87.86926

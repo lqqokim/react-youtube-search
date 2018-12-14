@@ -16,6 +16,13 @@ class Content extends Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        console.log(prevProps)
+        if (this.props.location.pathname !== prevProps.location.pathname) {
+            
+        }
+    }
+
     render() {
         return (
             <Fragment>
@@ -26,4 +33,4 @@ class Content extends Component {
         );
     }
 }
-export default Content;
+export default withRouter(Content);
