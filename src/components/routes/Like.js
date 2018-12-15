@@ -3,7 +3,7 @@ import React from 'react';
 const Like = () => {
     return (
         <div>
-            Like!
+            <h1>Like!</h1>
         </div>
     );
 }

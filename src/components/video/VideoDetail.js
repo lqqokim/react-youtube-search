@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Heart from './Heart.js';
 
-import { connect } from 'react-redux';
-import { changeList } from './../../store/modules/List';
-
 class VideoDetail extends Component {
     DEFAULT_URL = `https://www.youtube.com/embed/`;
 
@@ -24,8 +21,7 @@ class VideoDetail extends Component {
             video,
             heartClickedVideos: this.state.heartClickedVideos.concat([video])
         }, () => {
-            changeList(this.state.heartClickedVideos);
-            console.log('onClickHeartBtn => ', this.state.heartClickedVideos);
+
         });
     }
 
@@ -69,23 +65,10 @@ class VideoDetail extends Component {
     }
 }
 
-// props 로 넣어줄 스토어 상태값
-const mapStateToProps = state => ({
-    list: state.List.list
-});
-
-// props 로 넣어줄 액션 생성함수
-const mapDispatchToProps = dispatch => ({
-    changeList: list => dispatch(changeList(list))
-});
-
-const Loading = () => {
+function Loading() {
     return (
         <div> Loading ... </div>
     )
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(VideoDetail);
+export default VideoDetail;

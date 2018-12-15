@@ -1,8 +1,6 @@
-//Component
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
-//Components
 import Home from './routes/Home';
 import Search from './routes/Search';
 import Like from './routes/Like';
@@ -17,7 +15,6 @@ class Content extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(prevProps)
         if (this.props.location.pathname !== prevProps.location.pathname) {
             
         }

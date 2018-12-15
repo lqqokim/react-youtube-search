@@ -48,7 +48,7 @@ class VideoListItem extends Component {
     }
 }
 
-const Layer = () => {
+function Layer() {
     return (
         <div className="play">
             <i className="fa fa-play"></i>
@@ -56,7 +56,7 @@ const Layer = () => {
     );
 };
 
-const Dots = () => {
+function Dots() {
     return (
         <div className="item-dots">
             <span className="dots"></span>

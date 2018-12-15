@@ -1,8 +1,5 @@
-//React
 import React, { Component } from 'react';
-
-//Api
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import Header from './components/Header';
 import Content from './components/Content';
@@ -59,6 +56,5 @@ class App extends Component {
 }
 
 export default withRouter(props => {
-    console.log(props);
     return <App {...props} />
 });

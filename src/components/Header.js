@@ -13,10 +13,6 @@ class Header extends Component {
         }
     }
 
-    componentDidMount() {
-        console.log('props => ', this.props);
-    }
-
     onChangeInput = (event) => {
         const keyword = event.target.value;
         this.setState({ keyword });
@@ -69,20 +65,20 @@ class Header extends Component {
                     >
                         <i className="fa fa-search"></i>
                     </button>
-                    {/* {this.state.isShowSearcHistory &&
+                    {this.state.isShowSearcHistory &&
                         (
                             <SearchHistory
                                 onCloseHistory={this.onCloseHistory}
                             />
                         )
-                    } */}
+                    }
                 </div>
             </div>
         );
     }
 }
 
-const MenuBar = (props) => {
+function MenuBar(props) {
     return (
         <div className="menu">
             <i className="fa fa-bars"
@@ -92,7 +88,7 @@ const MenuBar = (props) => {
     );
 }
 
-const Logo = () => {
+function Logo() {
     return (
         <div className="logo">
             <img src={require('./../assets/images/youtube.jpg')} alt={"logo"} />

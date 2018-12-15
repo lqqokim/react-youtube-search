@@ -53,8 +53,7 @@ class Search extends Component {
     }
 
     onVideoSelect = (selectedVideo) => {
-        this.setState({ 
-            selectedVideo });
+        this.setState({ selectedVideo });
     }
 
     render() {
