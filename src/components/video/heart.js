@@ -20,13 +20,7 @@ class Heart extends React.Component {
         let { video } = this.state;
         this.target = event.currentTarget.classList;
         this.target.toggle('heartscale');
-
-        if(video.isChecked) {
-            video.isChecked = false;
-        } else {
-            video.isChecked = true;
-        }
-
+        video.isChecked = !video.isChecked;
         this.props.onClickHeartBtn(video);
     }
 
