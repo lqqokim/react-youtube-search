@@ -1,3 +1,16 @@
+## __ReactJS로 구현한 Youtube 검색 사이트__
+
+- Youtube와 비슷한 UI를 ReactJS로 동영상 검색 구현
+- YouTube Data API (v3) 사용
+- react-router, react-redux
+
+### Screenshots
+
+<img src="./src/assets/images/youtube-react.png" width="50%">
+<!-- ![youtube-react](./src/assets/images/youtube-react.png | width=100) -->
+<img src="./src/assets/images/youtube-react2.png" width="50%">
+<!-- ![youtube-react](./src/assets/images/youtube-react2.png) -->
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

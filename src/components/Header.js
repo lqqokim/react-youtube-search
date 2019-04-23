@@ -65,13 +65,13 @@ class Header extends Component {
                     >
                         <i className="fa fa-search"></i>
                     </button>
-                    {this.state.isShowSearcHistory &&
+                    {/* {this.state.isShowSearcHistory &&
                         (
                             <SearchHistory
                                 onCloseHistory={this.onCloseHistory}
                             />
                         )
-                    }
+                    } */}
                 </div>
             </div>
         );
