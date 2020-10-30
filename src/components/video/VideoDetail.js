@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Heart from './Heart.js';
+import Heart from './Heart';
 
 class VideoDetail extends Component {
     DEFAULT_URL = `https://www.youtube.com/embed/`;

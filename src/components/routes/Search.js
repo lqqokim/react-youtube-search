@@ -7,7 +7,7 @@ import searchYoutube from 'youtube-api-v3-search';
 import VideoList from './../video/VideoList';
 import VideoDetail from './../video/VideoDetail';
 
-const API_KEY = 'AIzaSyCrI0kwNS07VIBB006Rhu5WuI-9hZPoYD4';
+const API_KEY = 'AIzaSyCZFH8nEZo4Zp-t6ky_uRmmLCrgoynjHkc';
 const options = {
     q: '',
     part: 'snippet',
